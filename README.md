@@ -44,6 +44,9 @@ sudo spank --custom /path/to/mp3s
 sudo spank --min-amplitude 0.1   # more sensitive
 sudo spank --min-amplitude 0.25  # less sensitive
 sudo spank --sexy --min-amplitude 0.2
+
+# Set cooldown period in millisecond (default: 750)
+sudo spank --cooldown 600
 ```
 
 ### Modes
@@ -186,7 +189,7 @@ sudo launchctl unload /Library/LaunchDaemons/com.taigrr.spank.plist
 1. Reads raw accelerometer data directly via IOKit HID (Apple SPU sensor)
 2. Runs vibration detection (STA/LTA, CUSUM, kurtosis, peak/MAD)
 3. When a significant impact is detected, plays an embedded MP3 response
-4. 750ms cooldown between responses to prevent rapid-fire
+4. 750ms cooldown between responses to prevent rapid-fire, adjustable with `--cooldown`
 
 ## Star History
 
