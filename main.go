@@ -464,7 +464,9 @@ func listenForSlaps(ctx context.Context, pack *soundPack, accelRing *shm.RingBuf
 		} else {
 			fmt.Printf("slap #%d [%s amp=%.5fg] -> %s\n", num, ev.Severity, ev.Amplitude, file)
 		}
-		go playAudio(pack, file, ev.Amplitude, &speakerInit)
+		if !stdioMode {
+			go playAudio(pack, file, ev.Amplitude, &speakerInit)
+		}
 	}
 }
 
